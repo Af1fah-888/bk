@@ -108,7 +108,7 @@
       ${inp('email', 'Email Aktif', { icon: 'mail', type: 'email', mode: 'email', ph: 'nama@email.com', ac: 'email' })}
       ${sel('statusPilih', 'Status Tamu', ref.status_tamu, 'Pilih status')}
       ${cond(['statusPilih', 'Lainnya'], inp('statusManual', 'Tuliskan Status Anda', { ph: 'mis. Kakak kandung', span: true }))}
-      ${sel('alamatPilih', 'Alamat', ['${esc(info.nama_sekolah)}', 'Lainnya'], 'Pilih alamat')}
+      ${sel('alamatPilih', 'Alamat', ['SMA Negeri 1 Balai Riam', 'Lainnya'], 'Pilih alamat')}
       ${cond(['alamatPilih', 'Lainnya'], inp('alamat', 'Tuliskan Alamat Anda', { icon: 'pin', ph: 'Alamat lengkap', span: true, max: 200 }))}
       ${inp('namaMurid', 'Nama Murid yang Dituju', { icon: 'school', ph: 'Nama murid', max: 100 })}
       ${sel('kelas', 'Kelas Murid', ref.kelas, 'Pilih kelas')}
