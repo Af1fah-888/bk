@@ -100,7 +100,7 @@
       ${inp('email', 'Email Aktif Siswa / Sekolah', { icon: 'mail', type: 'email', mode: 'email', ph: 'nama@email.com', ac: 'email' })}
       ${radios('tujuan', 'Tujuan Layanan Konseling', ref.tujuan_siswa, true)}
       ${chips(ref)}
-      ${inp('alamat', 'Alamat / Tempat Tinggal', { icon: 'pin', ph: 'Jl. ..., ', span: true, max: 200 })}
+      ${inp('alamat', 'Alamat / Tempat Tinggal', { icon: 'pin', ph: 'Jl. ...', span: true, max: 200 })}
       ${area('ket', 'Keterangan Tambahan / Topik Konseling', { opt: true, ph: 'Ceritakan singkat keperluan Anda...' })}`;
     if (F.jenis === 'umum') return `
       ${inp('nama', 'Nama Lengkap', { icon: 'user', ph: 'Nama Anda', ac: 'name' })}
@@ -108,7 +108,7 @@
       ${inp('email', 'Email Aktif', { icon: 'mail', type: 'email', mode: 'email', ph: 'nama@email.com', ac: 'email' })}
       ${sel('statusPilih', 'Status Tamu', ref.status_tamu, 'Pilih status')}
       ${cond(['statusPilih', 'Lainnya'], inp('statusManual', 'Tuliskan Status Anda', { ph: 'mis. Kakak kandung', span: true }))}
-      ${sel('alamatPilih', 'Alamat', ['SMA Negeri 1 Balai Riam', 'Lainnya'], 'Pilih alamat')}
+      ${sel('alamatPilih', 'Alamat', ['SMAN 1 BALAI RIAM', 'Lainnya'], 'Pilih alamat')}
       ${cond(['alamatPilih', 'Lainnya'], inp('alamat', 'Tuliskan Alamat Anda', { icon: 'pin', ph: 'Alamat lengkap', span: true, max: 200 }))}
       ${inp('namaMurid', 'Nama Murid yang Dituju', { icon: 'school', ph: 'Nama murid', max: 100 })}
       ${sel('kelas', 'Kelas Murid', ref.kelas, 'Pilih kelas')}
@@ -138,7 +138,7 @@
 		<span style="display:block; margin-top:6px;">
     ${esc(info.nama_sekolah)}
   </span>
-		</h1>
+  </h1>
         <p class="t2" style="max-width:640px">Selamat datang di ruang Bimbingan &amp; Konseling. Silakan pilih kategori kunjungan Anda untuk memulai pencatatan yang aman, ramah, dan terjaga kerahasiaannya.</p></div>
       <div class="safe-box"><span class="eyebrow" style="display:flex;gap:6px;align-items:center">${ic('shield', 14)} Data Dirahasiakan</span><b style="font-size:18px">Hanya untuk Guru BK</b><div class="small muted">Sesuai kode etik Guru BK</div></div>
     </section>
@@ -334,7 +334,7 @@
     if (!tick) { BK.state.left = BK.cfg.RESET_DETIK; tick = setInterval(() => { if (BK.state.hold) return; BK.state.left--; const c = $('#cd'); if (c) c.textContent = BK.state.left; if (BK.state.left <= 0) resetKiosk(); }, 1000); }
   }
   function formFromPayload(s) { const p = s.snap.p, f = newForm(s.snap.jenis); Object.assign(f, { nama: p.nama, email: p.email, hp: p.hp, bidang: p.bidang, ket: p.ket, kelas: p.kelas || '', tujuan: p.tujuan || '', alamat: p.alamat || '', namaMurid: p.namaMurid || '', instansi: p.instansi || '', jabatan: p.jabatan || '', setuju: true, foto: s.snap.foto, thumb: s.pl.thumb, reqId: s.pl.reqId });
-    if (f.jenis === 'umum') { const st = BK.pub.ref.status_tamu; f.alamatPilih = p.alamat === 'SMA Negeri 6 Palangkaraya' ? p.alamat : 'Lainnya'; f.statusPilih = st.indexOf(p.statusTamu) > -1 ? p.statusTamu : 'Lainnya'; f.statusManual = f.statusPilih === 'Lainnya' ? p.statusTamu : ''; }
+    if (f.jenis === 'umum') { const st = BK.pub.ref.status_tamu; f.alamatPilih = p.alamat === 'SMAN 1 BALAI RIAM' ? p.alamat : 'Lainnya'; f.statusPilih = st.indexOf(p.statusTamu) > -1 ? p.statusTamu : 'Lainnya'; f.statusManual = f.statusPilih === 'Lainnya' ? p.statusTamu : ''; }
     return f; }
   function resetKiosk() { clearInterval(tick); tick = null; BK.state.left = null; BK.state.hold = false; BK.state.sending = null; F = null; BK.LS.del('draft'); BK.go('#/'); if (location.hash === '#/' || !location.hash) BK.resolve(); }
   function printTicket(r, p, s) {
