@@ -136,11 +136,11 @@
       <div><span class="pill tag-live"><i class="dot"></i> Kios Tamu Digital • Ruang BK Terintegrasi</span>
         <h1 class="h-hero" style="margin:10px 0 6px">Buku Tamu Digital Ruang BK ${esc(info.nama_sekolah)}</h1>
         <p class="t2" style="max-width:640px">Selamat datang di ruang Bimbingan &amp; Konseling. Silakan pilih kategori kunjungan Anda untuk memulai pencatatan yang aman, ramah, dan terjaga kerahasiaannya.</p></div>
-      <div class="safe-box"><span class="eyebrow" style="display:flex;gap:6px;align-items:center">${ic('shield', 14)} Data Dirahasiakan</span><b style="font-size:18px">Hanya untuk Guru BK</b><div class="small muted">Sesuai kode etik Guru BK Indonesia</div></div>
+      <div class="safe-box"><span class="eyebrow" style="display:flex;gap:6px;align-items:center">${ic('shield', 14)} Data Dirahasiakan</span><b style="font-size:18px">Hanya untuk Guru BK</b><div class="small muted">Sesuai kode etik Guru BK</div></div>
     </section>
     ${stepper(1)}
     <h2 class="h-sm" style="margin-bottom:2px">Pilih Kategori Kunjungan</h2><p class="small muted" style="margin-bottom:12px">Pilih tipe pengunjung untuk menyesuaikan formulir registrasi</p>
-    <div class="cats" id="cats">${Object.keys(BK.JENIS).map(j => `<button type="button" class="cat ${F.jenis === j ? 'on' : ''}" data-cat="${j}"><span class="tick">${ic('check', 14)}</span><span class="ico">${ic(BK.JENIS[j].ic, 22)}</span><b>${BK.JENIS[j].l}</b><p>${{ siswa: 'Peserta didik SMAN 1 BALAI RIAM untuk layanan Bimbingan Pribadi, Sosial, Belajar, & Karir.', umum: 'Orang tua, wali murid, guru wali kelas, atau tamu personal yang berkepentingan dengan tim BK.', khusus: 'Tamu kedinasan, pengawas sekolah, instansi pemerintah, atau lembaga mitra kerja sama.' }[j]}</p></button>`).join('')}</div>
+    <div class="cats" id="cats">${Object.keys(BK.JENIS).map(j => `<button type="button" class="cat ${F.jenis === j ? 'on' : ''}" data-cat="${j}"><span class="tick">${ic('check', 14)}</span><span class="ico">${ic(BK.JENIS[j].ic, 22)}</span><b>${BK.JENIS[j].l}</b><p>${{ siswa: 'Khusus Siswa SMAN 1 BALAI RIAM untuk layanan Bimbingan Pribadi, Sosial, Belajar, & Karir.', umum: 'Orang tua, wali murid, guru wali kelas, atau tamu personal yang berkepentingan dengan tim BK.', khusus: 'Tamu kedinasan, pengawas sekolah, instansi pemerintah, atau lembaga mitra kerja sama.' }[j]}</p></button>`).join('')}</div>
     <form id="form" class="card form-card" style="margin-top:22px" novalidate autocomplete="off">
       <span class="eyebrow" style="color:var(--mint)">● Formulir Pendaftaran Tamu</span>
       <h2 class="h-md" id="formTitle" style="margin:4px 0 18px"></h2>
